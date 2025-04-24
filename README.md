@@ -12,7 +12,7 @@
 
 ### Tile-Based Coding System
 
-#### Tile Windows
+#### Windows
 
 - **Tile-Window**: Acts like a virtual keyboard containing code tiles.
 - **Code-Window**: Functions as the code editor where tiles are connected to write code.
@@ -178,3 +178,10 @@ Each player has a profile showing:
 - Total code written
 
 ---
+
+## Main UI Design
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/Main UI Design - Dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/Main UI Design - Light.png">
+  <img alt="Shows a black logo in light color mode and a white one in dark color mode." src="assets/Main UI Design - Dark.png">
+</picture>
