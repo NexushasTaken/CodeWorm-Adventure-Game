@@ -41,7 +41,7 @@ CREATE TABLE player_concept_progress (
 CREATE TABLE player_scenario_saves (
     user_id UUID NOT NULL REFERENCES auth.users(id),
     scenario_id INTEGER NOT NULL REFERENCES scenarios(id),
-    tile_data JSONB NOT NULL,
+    save_data JSONB NOT NULL, -- Includes Codes(Connected Tiles). 
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     PRIMARY KEY (user_id, scenario_id)
 );

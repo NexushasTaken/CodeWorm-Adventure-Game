@@ -28,7 +28,7 @@ Template:
 | TypeError   | `base_damage * 4`                  |
 | Exception   | `base_damage + enemy_hp // 4`      |
 
-## Scenario #1: Integer Basics  
+## Scenario #1: Integer Basics
 **Enemy Name**: `NullInt`  
 **Enemy HP**: 50  
 **Player HP**: 100  
