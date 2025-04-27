@@ -24,7 +24,7 @@ $$T_{p,s} = t_{end} - t_{start}$$
 **Constraint**:
 - $T_{p,s}$ is valid ony if the final submitted code executes without errors.
 
-#### (b) Speed ($A_{p,s}$)
+#### (b) Accuracy ($A_{p,s}$)
 **Description**: Error-adjusted correctness
 
 **Measurement**:
@@ -41,7 +41,7 @@ $$E_{p,s} = \frac{\text{Enemy HP}}{\text{Tiles Used}}$$
 - **Tiles Used**: Count of tiles in the level completion.
 
 ## 3. Normalization to \[0, 100\] Scale
-To compare across scenarios, normalize each metric relative to the **best obeserved performance** in $s$:
+To compare across scenarios, normalize each metric relative to the **best observed performance** in $s$:
 
 #### (a) Normalized Speed ($\hat{T}_{p,s}$)
 
@@ -51,7 +51,7 @@ $$\hat{T}_{p,s} = 100 \times \frac{min_{q \in P} T_{q,s}}{T_{p,s}}$$
 - $\hat{T}_{p,s} = 100$ if $p$ holds the record for fastest $s$.
 - $\hat{T}_{p,s} \rightarrow 0$ as $T_{p,s} \rightarrow \infty$
 
-#### (b) Normalized Accuracy ($\hat{E}_{p,s}$)
+#### (b) Normalized Accuracy ($\hat{A}_{p,s}$)
 
 $$\hat{A}_{p,s} = 100 \times \frac{A_{p,s}}{max_{q \in P} A_{q,s}}$$
 
