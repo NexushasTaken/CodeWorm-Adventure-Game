@@ -4,9 +4,7 @@
 ### Speed (Time Attack)
 Definitiion: Time taken to complete $s$.
 Measurement:
-$$
-T_{p,s} = t_{end} - t_{start}
-$$
+$$T_{p,s} = t_{end} - t_{start}$$
 Rules:
 - No error occurs at the time of completion.
 
