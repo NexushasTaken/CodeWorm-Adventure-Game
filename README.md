@@ -10,7 +10,7 @@
 
 [Programming Concepts](docs/Concepts) - List of *programming concepts* to be taught in the game.
 
-[Database Schema](docs/Databae Schema) - Database schema that store Leaderboards, Game Data, Achievements and Skins.
+[Database Schema](docs/Database Schema) - Database schema that store Leaderboards, Game Data, Achievements and Skins.
 
 [Leaderboards](docs/Leaderboards Content) - Leaderboards Documentation that includes Calculations of *Masteries*.
 
