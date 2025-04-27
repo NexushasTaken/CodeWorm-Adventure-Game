@@ -1,16 +1,22 @@
 # Leaderboard Metrics & Calculation
 ## Per Level Metrics
+
 ## 1. Definitions and Notation
 ### Speed (Time Attack)
 Definitiion: Time taken to complete $s$.
+
 Measurement:
+
 $$T_{p,s} = t_{end} - t_{start}$$
+
 Rules:
 - No error occurs at the time of completion.
 
 ### Accuracy (Error-Free Runs)
 Description: Tracks how cleanly a player solves a level (fewest mistakes).
+
 Calculation:
+
 ```
 Accuracy Score = (Total Lines Run) - (Total Errors)
 ```
