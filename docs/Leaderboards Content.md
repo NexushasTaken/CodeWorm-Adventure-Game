@@ -2,47 +2,90 @@
 ## Per Level Metrics
 
 ## 1. Definitions and Notation
-### Speed (Time Attack)
-Definitiion: Time taken to complete $s$.
+Let:
+- $S$ = Set of all scenarios (levels).
+- $C$ = Set of all concepts (e.g., Variables, Loops).
+- $s \in S$ = A single scenario.
+- $c \in C$ = A single concept.
+- $P$ = Set of all players.
+- $p \in P$ = A single player.
 
-Measurement:
+## 2. Per-Scenario Metrics
+For each player $p$ and scneario $s$, compute:
+
+#### (a) Speed ($T_{p,s}$)
+
+**Definition**: Time taken to complete $s$.
+
+**Measurement**:
 
 $$T_{p,s} = t_{end} - t_{start}$$
 
-Rules:
-- No error occurs at the time of completion.
+**Constraint**:
+- $T_{p,s}$ is valid ony if the final submitted code executes without errors.
 
-### Accuracy (Error-Free Runs)
-Description: Tracks how cleanly a player solves a level (fewest mistakes).
+#### (b) Speed ($A_{p,s}$)
+**Description**: Error-adjusted correctness
 
-Calculation:
+**Measurement**:
 
-```
-Accuracy Score = (Total Lines Run) - (Total Errors)
-```
+$$A_{p,s} = (\text{Total Lines Executed}) - (\text{Total Errors})$$
 
-### Code Efficiency (Optimal Solutions)
-Description: Rewards solving levels with minimal code tiles.
-Calculation:
-```
-Efficiency Score = (Enemy HP) / (Tiles Used)
-```
+#### (c) Efficiency ($E_{p,s}$)
+**Description**: Tile economy relative to enemy HP.
 
-## Overall Metrics
-### Concept Mastery
-Description: Evaluates a player’s skill across all levels in programming concept.
-Calculation:
-```
-Mastery Score =  ((Sum of Speed Score) + (Sum of Accuracy Score) + (Sum of Efficiency Score)) / (3 * Scenarios Completed)
-```
+**Measurement**:
 
-Sum of Score refers to the sum of scores across all levels.
+$$E_{p,s} = \frac{\text{Enemy HP}}{\text{Tiles Used}}$$
 
-### Grand Mastery
-Description: Overall skill across ALL topics.
-Calculation:
-```
-Grand Mastery = (Sum of Mastery Scores for ALL topics) / (Number of topics attempted)
-```
+- **Tiles Used**: Count of tiles in the level completion.
 
-$\hat{T}_{\text{Bob},s} = 100 \times \frac{\min(30, 45, 60)}{45} = 100 \times \frac{30}{45} = 66.7$
+## 3. Normalization to \[0, 100\] Scale
+To compare across scenarios, normalize each metric relative to the **best obeserved performance** in $s$:
+
+#### (a) Normalized Speed ($\hat{T}_{p,s}$)
+
+$$\hat{T}_{p,s} = 100 \times \frac{min_{q \in P} T_{q,s}}{T_{p,s}}$$
+
+**Interpretation**:
+- $\hat{T}_{p,s} = 100$ if $p$ holds the record for fastest $s$.
+- $\hat{T}_{p,s} \rightarrow 0$ as $T_{p,s} \rightarrow \infty$
+
+#### (b) Normalized Accuracy ($\hat{E}_{p,s}$)
+
+$$\hat{A}_{p,s} = 100 \times \frac{A_{p,s}}{max_{q \in P} A_{q,s}}$$
+
+**Interpretation**:
+- $\hat{A}_{p,s} = 100$ if $p$ used the fewest tiles in $s$. 
+- $\hat{A}_{p,s} \rightarrow 0$ if $p$ made errors in every line.
+
+#### (c) Normalized Efficiency ($\hat{E}_{p,s}$)
+
+$$\hat{E}_{p,s} = 100 \times \frac{E_{p,s}}{max_{q \in P} E_{q,s}}$$
+
+**Interpretation**:
+- $\hat{E}_{p,s} = 100$ if $p$ used the fewest tiles in $s$. 
+- $\hat{E}_{p,s} \rightarrow 0$ as tiles used $\rightarrow \infty$. 
+
+## 4. Concept Mastery ($M_{p,c}$)
+For each concept $c$, aggregate performance across all $s \in c$:
+
+$$M_{p,c} = \frac{1}{3|S_c|}\sum_{s \in S_c}(\hat{T}_{p,s} + \hat{A}_{p,s} + \hat{E}_{p,s})$$
+
+- $S_c$: Set of scenarios in concept $c$.
+- $|S_c|$: Number of scenarios in $c$.
+- **Range**: $M_{p,c} \in [0, 100]$
+
+## 5. Grand Mastery ($G_p$)
+Aggregate across all concepts:
+
+$$G_p = \frac{1}{C_p} \sum_{c \in C_p} M_{p,c}$$
+
+- $C_p$: Concepts attemted by $p$.
+- $|C_p|$: Number of concepts attemted.
+- **Range**: $G_p \in [0, 100]$
+
+## 6. Leaderboard Ranking
+Rank players by:
+1. **Concept Leaderboards**: Sort $M_{p,c}$ in descending order for each $c$.
+2. **Grand Leaderboards**: Sort $G_{p}$ in descending order.
