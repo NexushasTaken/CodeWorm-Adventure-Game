@@ -1,6 +1,6 @@
 # Leaderboard Metrics
 
-## Per-Level Metrics
+## Per-Level Scores
 
 ### Speed
 **Description**: Time taken to finish the level  
@@ -88,7 +88,7 @@ $\text{Grand Mastery} = \frac{\text{Sum of Concept Masteries}}{\text{Number of C
 
 1. **Level Leaderboards**  
    - Ranks players on specific levels  
-   - Uses: $\text{Normalized Speed}$, $\text{Normalized Accuracy}$, $\text{Normalized Efficiency}$  
+   - Uses: $\text{Speed Score}$, $\text{Accuracy Score}$, $\text{Efficiency Score}$
 
 1. **Concept Leaderboards**
    - Ranks players by programming topic  
