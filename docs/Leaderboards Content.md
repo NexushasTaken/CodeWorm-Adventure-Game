@@ -1,7 +1,7 @@
 # Leaderboard Metrics & Calculation
 ## Per Level Metrics
 
-## 1. Definitions and Notation
+## Definitions and Notation
 Let:
 - $S$ = Set of all scenarios (levels).
 - $C$ = Set of all concepts (e.g., Variables, Loops).
@@ -10,7 +10,7 @@ Let:
 - $P$ = Set of all players.
 - $p \in P$ = A single player.
 
-## 2. Per-Scenario Metrics
+## Per-Scenario Metrics
 For each player $p$ and scneario $s$, compute:
 
 #### (a) Speed ($T_{p,s}$)
@@ -40,7 +40,7 @@ $$E_{p,s} = \frac{\text{Enemy HP}}{\text{Tiles Used}}$$
 
 - **Tiles Used**: Count of tiles in the level completion.
 
-## 3. Normalization to \[0, 100\] Scale
+## Normalization to \[0, 100\] Scale
 To compare across scenarios, normalize each metric relative to the **best observed performance** in $s$:
 
 #### (a) Normalized Speed ($\hat{T}_{p,s}$)
@@ -67,7 +67,7 @@ $$\hat{E}_{p,s} = 100 \times \frac{E_{p,s}}{max_{q \in P} E_{q,s}}$$
 - $\hat{E}_{p,s} = 100$ if $p$ used the fewest tiles in $s$. 
 - $\hat{E}_{p,s} \rightarrow 0$ as tiles used $\rightarrow \infty$. 
 
-## 4. Concept Mastery ($M_{p,c}$)
+## Concept Mastery ($M_{p,c}$)
 For each concept $c$, aggregate performance across all $s \in c$:
 
 $$M_{p,c} = \frac{1}{3|S_c|}\sum_{s \in S_c}(\hat{T}_{p,s} + \hat{A}_{p,s} + \hat{E}_{p,s})$$
@@ -76,7 +76,7 @@ $$M_{p,c} = \frac{1}{3|S_c|}\sum_{s \in S_c}(\hat{T}_{p,s} + \hat{A}_{p,s} + \ha
 - $|S_c|$: Number of scenarios in $c$.
 - **Range**: $M_{p,c} \in [0, 100]$
 
-## 5. Grand Mastery ($G_p$)
+## Grand Mastery ($G_p$)
 Aggregate across all concepts:
 
 $$G_p = \frac{1}{C_p} \sum_{c \in C_p} M_{p,c}$$
@@ -85,7 +85,7 @@ $$G_p = \frac{1}{C_p} \sum_{c \in C_p} M_{p,c}$$
 - $|C_p|$: Number of concepts attemted.
 - **Range**: $G_p \in [0, 100]$
 
-## 6. Leaderboard Ranking
+## Leaderboard Ranking
 Rank players by:
-1. **Concept Leaderboards**: Sort $M_{p,c}$ in descending order for each $c$.
-2. **Grand Leaderboards**: Sort $G_{p}$ in descending order.
+**Concept Leaderboards**: Sort $M_{p,c}$ in descending order for each $c$.
+**Grand Leaderboards**: Sort $G_{p}$ in descending order.
