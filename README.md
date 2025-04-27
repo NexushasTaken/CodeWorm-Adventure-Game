@@ -12,8 +12,10 @@
 
 [Database Schema](docs/Database%20Schema.md) - Database schema that store Leaderboards, Game Data, Achievements and Skins.
 
-[Leaderboards](docs/Leaderboards%20Content.md) - Leaderboards Documentation that includes Calculations of *Masteries*.
-
 [Scenarios](docs/Scenarios.md) - Scenarios AKA Levels, Designs for each Concepts.
 
 [UI Designs](docs/UI%20Designs.md) - *Wireframe* or Simple UI Design.
+
+[Leaderboards Content](docs/Leaderboards%20Content%20Simplified.md) - Leaderboards Documentation that includes Calculations of *Masteries*.
+
+[Leaderboards Content Math Version](docs/Leaderboards%20Content.md) - Leaderboards Documentation that includes Calculations of *Masteries*.

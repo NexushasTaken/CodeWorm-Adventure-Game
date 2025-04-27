@@ -79,7 +79,7 @@ $$M_{p,c} = \frac{1}{3|S_c|}\sum_{s \in S_c}(\hat{T}_{p,s} + \hat{A}_{p,s} + \ha
 ## Grand Mastery ($G_p$)
 Aggregate across all concepts:
 
-$$G_p = \frac{1}{C_p} \sum_{c \in C_p} M_{p,c}$$
+$$G_p = \frac{1}{|C_p|} \sum_{c \in C_p} M_{p,c}$$
 
 - $C_p$: Concepts attemted by $p$.
 - $|C_p|$: Number of concepts attemted.
