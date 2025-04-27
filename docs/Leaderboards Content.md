@@ -87,5 +87,7 @@ $$G_p = \frac{1}{C_p} \sum_{c \in C_p} M_{p,c}$$
 
 ## Leaderboard Ranking
 Rank players by:
+
 **Concept Leaderboards**: Sort $M_{p,c}$ in descending order for each $c$.
+
 **Grand Leaderboards**: Sort $G_{p}$ in descending order.

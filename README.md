@@ -6,14 +6,14 @@
 
 ## Documents
 
-[Features](docs/Features) - Full detailed documentation of game features.
+[Features](docs/Features.md) - Full detailed documentation of game features.
 
-[Programming Concepts](docs/Concepts) - List of *programming concepts* to be taught in the game.
+[Programming Concepts](docs/Concepts.md) - List of *programming concepts* to be taught in the game.
 
-[Database Schema](docs/Database Schema) - Database schema that store Leaderboards, Game Data, Achievements and Skins.
+[Database Schema](docs/Database%20Schema.md) - Database schema that store Leaderboards, Game Data, Achievements and Skins.
 
-[Leaderboards](docs/Leaderboards Content) - Leaderboards Documentation that includes Calculations of *Masteries*.
+[Leaderboards](docs/Leaderboards%20Content.md) - Leaderboards Documentation that includes Calculations of *Masteries*.
 
-[Scenarios](docs/Scenarios) - Scenarios AKA Levels, Designs for each Concepts.
+[Scenarios](docs/Scenarios.md) - Scenarios AKA Levels, Designs for each Concepts.
 
-[UI Designs](docs/UI Designs) - *Wireframe* or Simple UI Design.
+[UI Designs](docs/UI%20Designs.md) - *Wireframe* or Simple UI Design.
