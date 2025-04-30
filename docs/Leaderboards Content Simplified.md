@@ -66,7 +66,7 @@ $\text{Normalized Efficiency} = 100 \times \frac{\text{Your Efficiency}}{\text{B
 ## Mastery Scores
 Every mastery is just an average of Scores.
 
-### Concept Mastery  
+### Concept Proficiency  
 **Description**: Your average skill in a programming topic  
 
 **Calculation**:  
@@ -74,26 +74,26 @@ Every mastery is just an average of Scores.
 $\text{Concept Mastery} = \frac{\text{Sum of Normalized Scores}}{3 \times \text{Number of Levels}}$  
 
 **Rules**:  
-- Includes Speed, Accuracy and Efficiency  
+- Includes Normalized Speed, Accuracy and Efficiency  
 - Max 100 points per level  
 
-### Grand Mastery  
+### Overall Mastery  
 **Description**: Your overall coding skill  
 
 **Calculation**:  
 
-$\text{Grand Mastery} = \frac{\text{Sum of Concept Masteries}}{\text{Number of Concepts}}$
+$\text{Grand Mastery} = \frac{\text{Sum of Concept Proficiency}}{\text{Number of Concepts}}$
 
 ## Leaderboard Types
 
-1. **Level Leaderboards**  
-   - Ranks players on specific levels  
+1. **Level Leaderboards**
+   - Ranks players on specific levels
    - Uses: $\text{Speed Score}$, $\text{Accuracy Score}$, $\text{Efficiency Score}$
 
 1. **Concept Leaderboards**
-   - Ranks players by programming topic  
-   - Uses: $\text{Concept Mastery}$  
+   - Ranks players by programming topic
+   - Uses: $\text{Concept Proficiency}$  
 
 3. **Global Leaderboard**  
-   - Ranks overall player skill  
-   - Uses: $\text{Grand Mastery}$  
+   - Ranks overall player skill
+   - Uses: $\text{Overall Mastery}$
