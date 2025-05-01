@@ -59,7 +59,7 @@ $\text{Normalized Accuracy} = 100 \times \frac{\text{Your Accuracy}}{\text{Best 
 ### Normalized Efficiency  
 **Description**: How close you are to the most efficient solution  
 
-**Calculation**:  
+**Calculation**:
 
 $\text{Normalized Efficiency} = 100 \times \frac{\text{Your Efficiency}}{\text{Best Efficiency}}$  
 
