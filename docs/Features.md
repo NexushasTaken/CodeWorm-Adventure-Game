@@ -171,24 +171,26 @@ Earned by:
 
 ### Leaderboards
 
-Ranks players globally by:
+Ranks players based on coding performance.
 
-- Speed
-- Accuracy
-- Coding efficiency
+#### Leaderboard Types
+
+1. **Level Leaderboards** – Rank players by speed, accuracy, and efficiency on each level.
+2. **Concept Leaderboards** – Rank players based on how well they perform in specific programming concepts.
+3. **Global Leaderboard** – Ranks overall coding skill across the entire game.
 
 ### Account System
 
-- **Authentication**: Players can register accounts.
-- **Data Sync**: Progress, unlocks, and settings are saved to the cloud.
-- **Cross-Device Access**: Play on PC, phone, or tablet — progress stays synced.
+- **Authentication**: Players can register accounts
+- **Data Sync**: Progress, unlocks, and settings saved online
+- **Multiple Device Access**: Play on multiple Phones — progress stays synced
 
 ### Player Profiles
 
-Each player has a profile showing:
+Each profile includes:
 
 - Achievements
-- Ranking
+- Ranking (per level, per concept, global)
 - Concept Mastery
 - Fastest level times
 - Total code written
