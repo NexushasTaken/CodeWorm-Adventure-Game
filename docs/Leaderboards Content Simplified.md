@@ -104,7 +104,7 @@ $\text{Grand Mastery} = \frac{\text{Sum of Concept Proficiency}}{\text{Number of
    - Ranks players on specific levels
    - Uses: $\text{Speed Score}$, $\text{Accuracy Score}$, $\text{Efficiency Score}$
 
-1. **Concept Leaderboards**
+2. **Concept Leaderboards**
    - Ranks players by programming topic
    - Uses: $\text{Concept Proficiency}$
 
