@@ -1,3 +1,5 @@
+# Game Document
+
 ## Game Mechanics
 
 ### Tile-Based Coding System
