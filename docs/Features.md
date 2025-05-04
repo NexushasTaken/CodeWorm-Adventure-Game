@@ -20,6 +20,7 @@
 #### Example
 
 In early levels:
+
 - Level 1: Introduces **Variables** and **Data Types**.
 - Level 5: Introduces **Math Operators**.
 
@@ -30,8 +31,6 @@ Each concept is followed by several levels (practice, challenge, or story-based)
 By the player concept progression, tiles will be a lot and hard to track of, find specific tiles.
 by adding **Searching** functionality, player can find a specific tile for a syntax easily.
 the **Searching** will be implemented as **Fuzzy finder**.
-
----
 
 ## Turn-Based Gameplay
 
@@ -59,15 +58,12 @@ The thing is, calculating the overall value of each concept might result in an o
 
 So, we can do the opposite: the more concepts used in the code, the less overall offensive damage will be inflicted on the enemy.
 
-
 ### Turn Order
 
 - The game is **turn-based**, and the **player always moves first**.
 - The enemy will take turn after the player runs their code.
 - Player and enemy both have **health points (HP)**.
 - Reaching 0 HP resets the current level's state, including connected tiles.
-
----
 
 ## Story and Level Design
 
@@ -85,15 +81,14 @@ Each level is centered around a **programming concept** and includes:
 - **Enemies**: Represent coding challenges.
 - **Bosses**: Require solving problems (e.g. algorithms, data structures).
 
----
-
 ## Feedback and Error Handling
 
 ### Analysis
 
 - Tile connection is **not** turn-based — players can connect or remove tiles freely, much like can do with typing codes with keyboard.
 - A built-in code analyzer (like a compiler) checks syntax and displays feedback, after a brief pause of the user(without doing any modification to code).
-		The Analyzer will be execute after 1.5 seconds of user inactivity.
+
+  The Analyzer will be execute after 1.5 seconds of user inactivity.
 
 ### Help System
 
@@ -103,8 +98,6 @@ Each level is centered around a **programming concept** and includes:
 
 2. **Real-Time Error Messages**
    - Displays messages during tile connections to guide the player toward correct syntax.
-
----
 
 ## Progression Features
 
@@ -122,14 +115,12 @@ To avoid tedious tile placement, players unlock **tile compression** after maste
 #### Example: Tile Merging
 
 Before compression:
-```
+
 `if` - `__name__` - `=` - `=` - `"` - `__main__` - `"` - `:` - *newline* - `Indent`
-```
 
 After compression:
-```
+
 `if` - `__name__ == "__main__":` - *newline* - `Indent`
-```
 
 > After a string quote (`"`), the next tile behaves like string content.
 
@@ -138,13 +129,12 @@ This speeds up code writing in later levels.
 This function will be applied after the Player becomes proficient on using a specific syntax.
 > so if the player becomes proficient on using/making strings, the compression will be applied to `"`.
 
----
-
 ## Tracking and Analytics
 
 ### Concept Mastery Reports
 
 Tracks player understanding of:
+
 - Variables
 - If-statements
 - Loops
@@ -155,23 +145,24 @@ Players earn "mastery" after repeated correct usage or challenge completion.
 ### Level Completion Tracking
 
 Logs:
+
 - Completed levels
 - Encountered enemies
 - Collected items
 - Player-written code
-
----
 
 ## Online Features (Supabase)
 
 ### Achievements & Milestones
 
 Players unlock:
+
 - Cosmetic skins
 - Titles
 - Trophies
 
 Earned by:
+
 - Finishing levels
 - Mastering concepts
 - Solving difficult problems
@@ -179,6 +170,7 @@ Earned by:
 ### Leaderboards
 
 Ranks players globally by:
+
 - Speed
 - Accuracy
 - Coding efficiency
@@ -192,6 +184,7 @@ Ranks players globally by:
 ### Player Profiles
 
 Each player has a profile showing:
+
 - Achievements
 - Ranking
 - Concept Mastery
