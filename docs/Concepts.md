@@ -1,4 +1,6 @@
-### 1. **Variables and Data Types**
+# Concepts
+
+## 1. **Variables and Data Types**
 
 - Variables store data and can be assigned values dynamically.
 - Common data types:
@@ -11,7 +13,7 @@
   - Sets (`set`)
   - Dictionaries (`dict`)
 
-### 2. **Operators**
+## 2. **Operators**
 
 - Arithmetic Operators ("+", "-", "\*", "/", "//", "%", "\*\*")`
 - Comparison Operators ("\=\=", "!=", ">", "<", ">=", "<=")
@@ -20,26 +22,26 @@
 - Membership Operators ("in", "not in")
 - Identity Operators ("is", "is not")
 
-### 3. **Control Flow Statements**
+## 3. **Control Flow Statements**
 
 - `if`, `elif`, `else` for decision-making
 - `for` and `while` loops for iteration
 - `break`, `continue`, `pass` for loop control
 
-### 4. **Functions**
+## 4. **Functions**
 
 - Defined using the `def` keyword
 - Can accept parameters and return values
 - Support default, keyword, and arbitrary arguments (`*args`, `**kwargs`)
 
-### 5. **Data Structures**
+## 5. **Data Structures**
 
 - **Lists**: Ordered, mutable collections
 - **Tuples**: Ordered, immutable collections
 - **Sets**: Unordered, unique elements
 - **Dictionaries**: Key-value pairs
 
-### 6. **Strings**
+## 6. **Strings**
 
 - Immutable sequences of characters
 - Support slicing, indexing, and various built-in methods
