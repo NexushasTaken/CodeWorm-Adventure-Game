@@ -157,17 +157,11 @@ Logs:
 
 ### Achievements & Milestones
 
-Players unlock:
+Players skins which can be earned by:
 
-- Cosmetic skins
-- Titles
-- Trophies
-
-Earned by:
-
-- Finishing levels
-- Mastering concepts
-- Solving difficult problems
+- Completing concepts
+- Completing levels
+- Earning achievements
 
 ### Leaderboards
 
