@@ -1,6 +1,8 @@
-# Variables & Data Types
+# Scenarios
 
-## Making a Scenario
+## Variables & Data Types
+
+### Making a Scenario
 
 for players to be able to retain what they have learned, a multiple scenarios for each Concept is a must.
 for instance, **Variables & Data Types** has many different data types, each data type must be one or more scenario scenario, see Scenario #1 and Scenario #2 below, these #1 and #2 Scenarios focused on *Integer Data Types*.
@@ -16,7 +18,7 @@ Template:
 
 **Objective**: <objective>
 
-### Rules:
+#### Rules:
 - rule 1
   - rule 1 explanation
   - rule 1 explanation
@@ -26,7 +28,7 @@ Template:
   - rule 2 explanation
 ```
 
-## Syntax Error Penalties
+### Syntax Error Penalties
 
 Also considered as penalty if there is error in code; enemy will counterattack.
 
@@ -37,9 +39,9 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 | TypeError   | `base_damage * 4`                  |
 | Exception   | `base_damage + enemy_hp // 4`      |
 
-# Integer
+## Integer
 
-## Scenario #1: Integer Basics
+### Scenario #1: Integer Basics
 
 **Enemy Name**: `NullInt`
 
@@ -51,8 +53,7 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Objective**: Assign integers to `attack` to deplete enemy HP.
 
-
-### Rules
+#### Rules
 
 **Valid Attack**:
 
@@ -70,7 +71,7 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 - `attack` value cannot be the same per turn.
 - Enemy counterattacks for `attack` damage.
 
-## Scenario #2: Fibonacci Sequence
+### Scenario #2: Fibonacci Sequence
 
 **Enemy Name**: `FiboNull`
 
@@ -82,7 +83,7 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Objective**: Assign Fibonacci numbers to `attack` to unlock bonus damage.
 
-### Rules
+#### Rules
 
 **Attack Formula**: `(c * n) + 1`
 
@@ -99,10 +100,9 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 - Non-Fibonacci number -> Enemy counterattacks for `attack` damage.
 
+## Float
 
-# Float
-
-## Scenario #3: Floating Point Precision
+### Scenario #3: Floating Point Precision
 
 **Enemy Name**: FloatFiend
 
@@ -114,7 +114,7 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Objective**: Assign accurate float values to control attack power.
 
-### Rules
+#### Rules
 
 **Valid Attack**:
 
@@ -122,7 +122,7 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 - Valid value `0.5 <= attack <= 5.5`
 - Too Precise: More than 2 decimal places
 
-**Invalid Attack**
+**Invalid Attack**:
 
 - Enemy counterattacks for `attack` damage if it is not within the range.
 
@@ -130,10 +130,9 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 - Enemy counterattacks for `attack` damage.
 
+## Boolean
 
-# Boolean
-
-## Scenario #4: Boolean Trap Logic
+### Scenario #4: Boolean Trap Logic
 
 **Enemy Name**: TrueLie
 
@@ -145,7 +144,7 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Objective**: Assign correct boolean values to `attack` based on the enemy's statements.
 
-### Rules
+#### Rules
 
 **Valid Attack**:
 Enemy speaks a statement each turn.
@@ -176,9 +175,9 @@ Enemy speaks a statement each turn.
 3. "Python is a type of snake and a programming language." -> `attack = True`
 4. "2 is greater than 5." -> `attack = False`
 
-# String
+## String
 
-## Scenario #5: String Echo Fight
+### Scenario #5: String Echo Fight
 
 **Enemy Name**: EchoLure
 
@@ -190,7 +189,7 @@ Enemy speaks a statement each turn.
 
 **Objective**: Assign the correct string to `word` that matches the enemy's required word.
 
-### Rules
+#### Rules
 
 **Valid Attack**:
 
@@ -216,9 +215,9 @@ Enemy speaks a statement each turn.
 3. "I like 'code'" → `word = "code"`
 4. "Repeat: python" → `word = "python"`
 
-# List
+## List
 
-## Scenario #6: List Formation
+### Scenario #6: List Formation
 
 **Enemy Name**: SwarmBug
 
@@ -230,7 +229,7 @@ Enemy speaks a statement each turn.
 
 **Objective**: Create a list named `targets` with the correct number of enemies, elements can be any type of values.
 
-### Rules
+#### Rules
 
 **Valid Action**:
 
@@ -255,9 +254,9 @@ Enemy speaks a statement each turn.
 2. "Five of us are crawling!" → `targets = ['a', 'b', 'c', 'd', 'e']`
 3. "Just one bug!" → `targets = ['x']`
 
-# Tuples
+## Tuples
 
-## Scenario #7: Tuple Lock Code
+### Scenario #7: Tuple Lock Code
 
 **Enemy Name**: LockWorm
 
@@ -269,7 +268,7 @@ Enemy speaks a statement each turn.
 
 **Objective**: Create a tuple named `code` with numbers in **ascending order** to unlock the enemy's weak point.
 
-### Rules
+#### Rules
 
 **Valid Action**:
 
@@ -291,9 +290,9 @@ Enemy speaks a statement each turn.
 2. "My combo is 9, 4, 6." → `code = (4, 6, 9)`
 3. "Try 3, 3, 1." → `code = (1, 3, 3)`
 
-# Dictionary
+## Dictionary
 
-## Scenario #8: LetterCount Curse
+### Scenario #8: LetterCount Curse
 
 **Enemy Name**: GlyphGhoul
 
@@ -305,7 +304,7 @@ Enemy speaks a statement each turn.
 
 **Objective**: Count each letter in the enemy's glyph curse and store the result in a dictionary named `countmap`.
 
-### Rules
+#### Rules
 
 **Enemy Action (each turn)**:
 
@@ -325,7 +324,7 @@ Enemy speaks a statement each turn.
 - Incorrect datatype: number of wrong data type.
 - Missing key: number of missing key.
 
-### Example
+#### Example
 
 **Enemy casts**: `"aabbccaa"`
 **Player code**:
