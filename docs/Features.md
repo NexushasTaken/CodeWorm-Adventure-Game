@@ -77,6 +77,8 @@ Each level is centered around a **programming concept** and includes:
 - **Unique Challenges**
 - **Entities** (either Enemies or Allies)
 
+Levels are grouped into **Concept Scenarios**, which are structured sequences of levels designed to teach and reinforce a specific programming concept. Each scenario starts with a basic introduction, followed by practice levels, variations, and advanced use cases. The goal is to help players not just learn a concept once, but to master it through repeated, contextualized usage. These scenarios progressively increase in difficulty, requiring players to apply the same concept in different ways until their understanding becomes intuitive.
+
 #### Entities
 
 - **Allies**: Introduce new concepts and provide guidance.
