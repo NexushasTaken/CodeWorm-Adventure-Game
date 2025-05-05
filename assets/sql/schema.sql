@@ -31,8 +31,8 @@ CREATE TABLE player_scenario_runs (
 );
 
 CREATE TABLE player_concept_unlocks (
-  user_id UUID NOT NULL REFERENCES auth.users(id),
-  concept_id UUID NOT NULL REFERENCES concepts(id),
+  user_id UUID REFERENCES auth.users(id),
+  concept_id UUID REFERENCES concepts(id),
   is_unlocked BOOLEAN NOT NULL DEFAULT FALSE,
   unlocked_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY (user_id, concept_id)
@@ -40,26 +40,23 @@ CREATE TABLE player_concept_unlocks (
 
 -- Saves
 CREATE TABLE player_scenario_saves (
-  user_id UUID NOT NULL REFERENCES auth.users(id),
-  scenario_id UUID NOT NULL REFERENCES scenarios(id),
+  user_id UUID REFERENCES auth.users(id),
+  scenario_id UUID REFERENCES scenarios(id),
   save_data JSONB NOT NULL,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY (user_id, scenario_id)
 );
 
--- Leaderboards
-CREATE TABLE scenario_records (
-  scenario_id UUID NOT NULL REFERENCES scenarios(id),
-  record_type TEXT NOT NULL CHECK (record_type IN ('speed', 'accuracy', 'efficiency')),
-  record_value FLOAT NOT NULL,
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  PRIMARY KEY (scenario_id, record_type)
+-- Skin Collection
+CREATE TABLE skins (
+  id UUID PRIMARY KEY,
+  identifier TEXT NOT NULL
 );
 
 -- Player Skins Collection
 CREATE TABLE player_skins (
-  user_id UUID NOT NULL REFERENCES auth.users(id),
-  skin_id TEXT NOT NULL,
+  user_id UUID REFERENCES auth.users(id),
+  skin_id UUID REFERENCES skins(id),
   unlocked_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY (user_id, skin_id)
 );
@@ -67,7 +64,7 @@ CREATE TABLE player_skins (
 -- Player Selected Skins
 CREATE TABLE player_selected_skin (
   user_id UUID REFERENCES auth.users(id),
-  skin_id TEXT NOT NULL,
+  skin_id UUID REFERENCES skins(id),
   selected_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY (user_id),
   UNIQUE (user_id)
@@ -76,15 +73,14 @@ CREATE TABLE player_selected_skin (
 -- Achievements
 CREATE TABLE achievements (
   id UUID PRIMARY KEY,
-  name TEXT NOT NULL,
-  description TEXT NOT NULL,
-  UNIQUE(name)
+  name TEXT UNIQUE NOT NULL,
+  description TEXT NOT NULL
 );
 
 -- Completed/Unlocked Achievements
 CREATE TABLE player_achievements (
-  user_id UUID NOT NULL REFERENCES auth.users(id),
-  achievement_id UUID NOT NULL REFERENCES achievements(id),
+  user_id UUID REFERENCES auth.users(id),
+  achievement_id UUID REFERENCES achievements(id),
   unlocked_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   PRIMARY KEY (user_id, achievement_id)
 );
@@ -100,9 +96,20 @@ CREATE TABLE player_concept_proficiencies (
 
 -- Overall Mastery
 CREATE TABLE player_masteries (
-  user_id UUID PRIMARY KEY REFERENCES auth.users(id),
+  user_id UUID REFERENCES auth.users(id),
   mastery FLOAT NOT NULL,
-  last_updated TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  last_updated TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (user_id)
+);
+
+-- Leaderboards
+CREATE TABLE scenario_best_scores (
+  scenario_id UUID REFERENCES scenarios(id),
+  speed_seconds FLOAT NOT NULL,
+  accuracy_score INTEGER NOT NULL,
+  efficiency_score FLOAT NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (scenario_id)
 );
 
 ROLLBACK;
