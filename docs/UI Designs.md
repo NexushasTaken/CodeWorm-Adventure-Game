@@ -40,17 +40,17 @@
 
 ![Progress Menu](../assets/ui-designs/Progress%20Menu.excalidraw.png)
 
-## Account Info
+## Customization Menu (Options)
 
-![Account Info](../assets/ui-designs/Account%20Info.excalidraw.png)
+![Customization Menu](../assets/ui-designs/Customization%20Menu.excalidraw.png)
 
 ## Player Appearance
 
 ![Player Appearance not yet created]()
 
-## Customization Menu (Options)
+## Account Info
 
-![Customization Menu](../assets/ui-designs/Customization%20Menu.excalidraw.png)
+![Account Info](../assets/ui-designs/Account%20Info.excalidraw.png)
 
 ## Progress - Achievements
 
