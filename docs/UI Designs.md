@@ -1,7 +1,61 @@
-# Battle Screen
+# UI Designs
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../assets/Main UI Design - Dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="../assets/Main UI Design - Light.png">
-  <img alt="Shows a black logo in light color mode and a white one in dark color mode." src="../assets/Main UI Design - Dark.png">
-</picture>
+## Login/Register/Offline
+
+![Login/Register/Offline not yet created]()
+
+## Data Sync Menu
+
+![Data Sync Menu](../assets/ui-designs/Data%20Sync%20Menu.excalidraw.png)
+
+## Main Menu
+
+![Main Menu](../assets/ui-designs/Main%20Menu.excalidraw.png)
+
+## Battle UI (Separated)
+
+![Battle Screen](../assets/ui-designs/Main%20UI%20Design%20-%20Light.png)
+
+### Battle UI - Ally no enemy
+
+![Battle UI - Ally no enemy](../assets/ui-designs/raw/Battle%20UI%20-%20Ally%20no%20enemy.excalidraw.png)
+
+### Battle UI - Ally
+
+![Battle UI - Ally](../assets/ui-designs/raw/Battle%20UI%20-%20Ally.excalidraw.png)
+
+### Battle UI - Code
+
+![Battle UI - Code](../assets/ui-designs/raw/Battle%20UI%20-%20Code.excalidraw.png)
+
+### Battle UI - Tiles
+
+![Battle UI - Tiles](../assets/ui-designs/raw/Battle%20UI%20-%20Tiles.excalidraw.png)
+
+## Leaderboards
+
+![Leaderboards](../assets/ui-designs/Leaderboards.excalidraw.png)
+
+## Progress Menu
+
+![Progress Menu](../assets/ui-designs/Progress%20Menu.excalidraw.png)
+
+## Account Info
+
+![Account Info](../assets/ui-designs/Account%20Info.excalidraw.png)
+
+## Player Appearance
+
+![Player Appearance not yet created]()
+
+## Customization Menu (Options)
+
+![Customization Menu](../assets/ui-designs/Customization%20Menu.excalidraw.png)
+
+## Progress - Achievements
+
+![Progress - Achievements](../assets/ui-designs/raw/Progress%20-%20Achivements.excalidraw.png)
+
+## Progress - Milestone
+
+![Progress - Milestone](../assets/ui-designs/raw/Progress%20-%20Milestone.excalidraw.png)
