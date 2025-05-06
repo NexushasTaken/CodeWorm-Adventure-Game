@@ -1,4 +1,4 @@
-# Leaderboard Metrics
+# Leaderboards
 
 ## Per-Level Scores
 

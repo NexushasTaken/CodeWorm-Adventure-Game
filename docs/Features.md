@@ -1,5 +1,7 @@
 # Game Document
 
+Game Name: Code Conquest: The adventure game
+
 ## Game Mechanics
 
 ### Tile-Based Coding System
