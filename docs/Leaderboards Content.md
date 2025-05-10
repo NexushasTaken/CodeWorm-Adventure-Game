@@ -1,107 +1,132 @@
-# Leaderboard Metrics & Calculation
+# Leaderboards
 
-## Per Level Metrics
+## Overview
+Leaderboards track player performance across different aspects of the game, from individual levels to overall coding mastery. This system encourages learning and improvement through friendly competition.
 
-## Definitions and Notation
+## Per-Level Scores
 
-Let:
+### Speed
 
-- $S$ = Set of all scenarios (levels).
-- $C$ = Set of all concepts (e.g., Variables, Loops).
-- $s \in S$ = A single scenario.
-- $c \in C$ = A single concept.
-- $P$ = Set of all players.
-- $p \in P$ = A single player.
+**Description**: Time taken to finish the level
 
-## Per-Scenario Metrics
+**Calculation**:
+$\text{Speed} = \text{End Time} - \text{Start Time}$
 
-For each player $p$ and scneario $s$, compute:
+**Rules**:
+- Only valid if the final submitted code has no errors
+- Measured in seconds
+- Lower values are better
+- Tracks fastest level completion times
 
-### (a) Speed ($T_{p,s}$)
+### Accuracy
 
-**Definition**: Time taken to complete $s$.
+**Description**: How many mistakes you made
 
-**Measurement**:
+**Calculation**:
+$\text{Accuracy} = (\text{Correct Lines}) - (\text{Error Count})$
 
-$$T_{p,s} = t_{end} - t_{start}$$
+**Rules**:
+- Counts all syntax and logic errors
+- Higher values are better
+- Measures code quality and correctness
 
-**Constraint**:
+### Efficiency
 
-- $T_{p,s}$ is valid ony if the final submitted code executes without errors.
+**Description**: How clean your solution is
 
-### (b) Accuracy ($A_{p,s}$)
+**Calculation**:
+$\text{Efficiency} = \frac{\text{Enemy HP}}{\text{Tiles Used}}$
 
-**Description**: Error-adjusted correctness
+**Rules**:
+- Only counts tiles in final submitted code
+- Higher values are better
+- Rewards concise and effective solutions
 
-**Measurement**:
+## Normalized Scores (0-100 Scale)
 
-$$A_{p,s} = (\text{Total Lines Executed}) - (\text{Total Errors})$$
+### Normalized Speed
 
-### (c) Efficiency ($E_{p,s}$)
+**Description**: How close you are to the world record
 
-**Description**: Tile economy relative to enemy HP.
+**Calculation**:
+$\text{Normalized Speed} = 100 \times \frac{\text{Fastest Time}}{\text{Your Time}}$
 
-**Measurement**:
+**Rules**:
+- 100 = world record
+- 50 = twice as slow as record
+- 0 = took much longer than record
+- Used for level rankings
 
-$$E_{p,s} = \frac{\text{Enemy HP}}{\text{Tiles Used}}$$
+### Normalized Accuracy
 
-- **Tiles Used**: Count of tiles in the level completion.
+**Description**: How close you are to perfect accuracy
 
-## Normalization to \[0, 100\] Scale
+**Calculation**:
+$\text{Normalized Accuracy} = 100 \times \frac{\text{Your Accuracy}}{\text{Best Accuracy}}$
 
-To compare across scenarios, normalize each metric relative to the **best observed performance** in $s$:
+**Rules**:
+- 100 = perfect accuracy
+- 0 = made errors in every line
+- Used for level rankings
 
-### (a) Normalized Speed ($\hat{T}_{p,s}$)
+### Normalized Efficiency
 
-$$\hat{T}_{p,s} = 100 \times \frac{min_{q \in P} T_{q,s}}{T_{p,s}}$$
+**Description**: How close you are to the most efficient solution
 
-**Interpretation**:
+**Calculation**:
+$\text{Normalized Efficiency} = 100 \times \frac{\text{Your Efficiency}}{\text{Best Efficiency}}$
 
-- $\hat{T}_{p,s} = 100$ if $p$ holds the record for fastest $s$.
-- $\hat{T}_{p,s} \rightarrow 0$ as $T_{p,s} \rightarrow \infty$
+**Rules**:
+- 100 = used fewest tiles
+- 0 = used many more tiles than needed
+- Used for level rankings
 
-### (b) Normalized Accuracy ($\hat{A}_{p,s}$)
+## Mastery Scores
 
-$$\hat{A}_{p,s} = 100 \times \frac{A_{p,s}}{max_{q \in P} A_{q,s}}$$
+### Concept Proficiency
 
-**Interpretation**:
+**Description**: Your average skill in a programming topic
 
-- $\hat{A}_{p,s} = 100$ if $p$ used the fewest tiles in $s$.
-- $\hat{A}_{p,s} \rightarrow 0$ if $p$ made errors in every line.
+**Calculation**:
+$\text{Concept Mastery} = \frac{\text{Sum of Normalized Scores}}{3 \times \text{Number of Levels}}$
 
-### (c) Normalized Efficiency ($\hat{E}_{p,s}$)
+**Rules**:
+- Includes Normalized Speed, Accuracy and Efficiency
+- Max 100 points per level
+- Average of all levels in the concept
+- Used for concept rankings
+- Tracks progress in specific programming topics (Variables, If-statements, Loops, etc.)
 
-$$\hat{E}_{p,s} = 100 \times \frac{E_{p,s}}{max_{q \in P} E_{q,s}}$$
+### Overall Mastery
 
-**Interpretation**:
+**Description**: Your overall coding skill
 
-- $\hat{E}_{p,s} = 100$ if $p$ used the fewest tiles in $s$.
-- $\hat{E}_{p,s} \rightarrow 0$ as tiles used $\rightarrow \infty$.
+**Calculation**:
+$\text{Grand Mastery} = \frac{\text{Sum of Concept Proficiency}}{\text{Number of Concepts}}$
 
-## Concept Proficiency ($M_{p,c}$)
+**Rules**:
+- Average of all concept proficiencies
+- Max 100 points total
+- Only counts concepts you've attempted
+- Used for global rankings
+- Represents overall programming ability
 
-For each concept $c$, aggregate performance across all $s \in c$:
+## Leaderboard Types
 
-$$M_{p,c} = \frac{1}{3|S_c|}\sum_{s \in S_c}(\hat{T}_{p,s} + \hat{A}_{p,s} + \hat{E}_{p,s})$$
+1. **Level Leaderboards**
+   - Ranks players on specific levels
+   - Uses: Normalized Speed, Accuracy, and Efficiency scores
+   - Shows best performance for each level
+   - Encourages replay and improvement
 
-- $S_c$: Set of scenarios in concept $c$.
-- $|S_c|$: Number of scenarios in $c$.
-- **Range**: $M_{p,c} \in [0, 100]$
+2. **Concept Leaderboards**
+   - Ranks players by programming topic
+   - Uses: Concept Proficiency score
+   - Shows mastery of specific programming concepts
+   - Tracks progress in learning different topics
 
-## Overall Mastery ($G_p$)
-
-Aggregate across all concepts:
-
-$$G_p = \frac{1}{|C_p|} \sum_{c \in C_p} M_{p,c}$$
-
-- $C_p$: Concepts attemted by $p$ (Concept Proficiency).
-- $|C_p|$: Number of concepts attemted.
-- **Range**: $G_p \in [0, 100]$
-
-## Leaderboard Ranking
-
-Rank players by:
-
-**Concept Leaderboards**: Sort $M_{p,c}$ in descending order for each $c$.
-
-**Mastery Leaderboards**: Sort $G_{p}$ in descending order.
+3. **Global Leaderboard**
+   - Ranks overall player skill
+   - Uses: Overall Mastery score
+   - Shows best overall programmers
+   - Represents complete game progress

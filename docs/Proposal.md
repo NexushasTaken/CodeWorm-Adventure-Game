@@ -1,51 +1,114 @@
 # System Project Proposal
 
-## CodeWorm: The Coding Adventure
+## Code Conquest: The Adventure Game
 
 ### Description
 
-CodeWorm: The Coding Adventure is a tile-based coding RPG that teaches programming fundamentals using Python through interactive challenges. Players connect code tiles to solve problems, unlock new programming concepts, and engage in turn-based combat with enemies. Each level introduces a new concept, such as variables, loops, or functions, encouraging players to practice and apply their Python skills in an engaging, story-driven format.
+Code Conquest is an educational game that teaches programming concepts through an engaging adventure format. Players learn to code by solving challenges and battling enemies using programming concepts. The game uses a tile-based coding system where players connect code tiles to write Python code, solve puzzles, and engage in turn-based combat with enemies that represent coding challenges.
 
 ### Target Users
 
-- Students are learning programming for the first time.
-- Self-learners seeking a fun and structured way to learn coding.
-- Educators are looking for an interactive tool to teach programming concepts.
+- Students learning programming for the first time
+- Self-learners seeking a fun and structured way to learn coding
+- Educators looking for an interactive tool to teach programming concepts
 
 ### Target Deliverables
 
-#### Tile-Based Coding Challenges
+#### 1. Tile-Based Coding System
 
-- Players use tiles representing programming keywords, syntax, and commands to construct code.
-- A set level introduces a new concept (e.g., variables, loops, math operators), followed by coding challenges and problem-solving exercises to reinforce learning.
-- Players progress by solving coding puzzles and facing enemies that test their understanding.
+- **Core Mechanics**
+  - Players connect tiles to write valid Python code
+  - Each tile represents a programming element (keywords, operators, etc.)
+  - Tiles are unlocked progressively as new concepts are introduced
+  - Connected tiles form complete code statements
 
-#### Feedback and Assistance
+- **Learning Progression**
+  - Early levels introduce basic concepts (variables, data types)
+  - Later levels introduce more complex concepts (loops, functions)
+  - Each concept is reinforced through multiple levels
+  - Players must demonstrate understanding to progress
 
-- Players receive feedback when running their code.
-- Debugging assistance, such as hints and suggestions, helps players correct errors and improve their coding skills.
-- A built-in error message system helps players understand what went wrong and how to fix it.
+#### 2. Turn-Based Gameplay
 
-#### Game Progression and Rewards
+- **Code Execution**
+  - Players write code to attack enemies
+  - Valid code triggers effects (damage, buffs, puzzle solving)
+  - Invalid code results in enemy attacks
+  - Real-time feedback on code execution
 
-- Players earn achievements for mastering concepts, completing levels, and solving coding problems.
-- Level completion is tracked, with performance analytics to help players what they have learned.
-- Players can unlock skins as they progress, providing a sense of accomplishment and motivation.
+- **Turn System**
+  - Player always moves first
+  - Enemy responds after code execution
+  - Health point system for both player and enemy
+  - Level reset on player defeat
 
-#### Entities (Enemies, Allies, and Bosses)
+#### 3. Level Design
 
-- Enemies: Each level has an enemy that represents a challenge related to the current programming concept.
-- Allies: Some levels have allies that help teach programming concepts. These allies guide players through new concepts and provide them with tips or tutorials.
-- Bosses: Boss battles occur when the player has to face complex coding challenges that combine many learned concepts (like algorithms or data structures). These bosses test the player's ability to apply knowledge to solve difficult problems.
+- **Concept Scenarios**
+  - Structured sequences teaching specific programming concepts
+  - Progressive difficulty increase
+  - Practice, challenge, and story-based levels
+  - Clear learning objectives for each level
 
-### Integrated System: Cloud Service (Supabase)
+- **Entities**
+  - Enemies: Represent coding challenges
+  - Allies: Introduce new concepts and provide guidance
+  - Bosses: Test mastery of multiple concepts
 
-This game integrates with Supabase, a cloud-based service that enhances the user experience by providing secure account management, progress tracking, and cross-device synchronization.
+#### 4. Feedback Systems
+
+- **Code Analysis**
+  - Real-time syntax checking
+  - Analyzer runs after user inactivity
+  - No automatic code modification
+  - Encourages learning through manual correction
+
+- **Help System**
+  - Hints and tips for fixing errors
+  - Real-time error messages
+  - Inspired by Rust's Error ID system
+
+#### 5. Progression Features
+
+- **Battle Boosters**
+  - Player Resurrection
+  - Syntax Shield
+
+- **Enhanced Coding**
+  - Tile compression after concept mastery
+  - Faster code writing in later levels
+  - Unlocks based on proficiency
+
+#### 6. Analytics and Tracking
+
+- **Concept Mastery**
+  - Tracks understanding of programming concepts
+  - Measures performance across levels
+  - Identifies areas for improvement
+
+- **Level Progress**
+  - Completed levels
+  - Encountered enemies
+  - Collected items
+  - Player-written code
+
+### Integrated System: Supabase Service
 
 #### Implementation of Services
 
-- Achievements & Milestones: Tracks progress through the game, awarding achievements for mastering programming concepts, completing levels, and solving challenges.
-- Leaderboards: Ranks players based on performance, including speed, accuracy, and coding efficiency, encouraging friendly competition.
-- Account Authentication: Players can securely create and manage accounts to save their progress, unlock features, and customize their experience.
-- Data Sync: Ensures that player progress, achievements, and settings are synchronized across devices, preventing data loss and allowing players to continue seamlessly.
-- Cross-Device Access: Players can log in on any device and continue where they left off, ensuring a smooth and flexible learning experience.
+- **Player Profiles**
+  - Achievements and milestones
+  - Concept mastery tracking
+  - Performance analytics
+  - Customization options
+
+- **Leaderboards**
+  - Level rankings (speed, accuracy, efficiency)
+  - Concept rankings (programming topic mastery)
+  - Global rankings (overall coding skill)
+
+- **Account System**
+  - Secure authentication
+  - Cloud-based progress saving
+  - Cross-device synchronization
+  - Seamless experience across devices
