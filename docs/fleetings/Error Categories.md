@@ -6,4 +6,4 @@ Errors in programming can be classified into three main types:
 - Runtime errors happen while the program is running and usually result in a crash, often due to issues like dividing by zero or using an undefined variable.
 - Logic errors are mistakes in the program's design that cause incorrect results, even though the code runs without crashing.
 
-[Built-in Exceptions](./Built-in Exceptions.md)
+[Built-in Exceptions](./Built-in%20Exceptions.md)
