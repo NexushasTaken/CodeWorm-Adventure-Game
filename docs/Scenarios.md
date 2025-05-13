@@ -4,8 +4,7 @@
 
 ### Making a Scenario
 
-for players to be able to retain what they have learned, a multiple scenarios for each Concept is a must.
-for instance, **Variables & Data Types** has many different data types, each data type must be one or more scenario scenario, see Scenario #1 and Scenario #2 below, these #1 and #2 Scenarios focused on *Integer Data Types*.
+For players to retain what they've learned, multiple scenarios for each concept are essential. Each data type should have one or more dedicated scenarios.
 
 Template:
 
@@ -14,30 +13,32 @@ Template:
 
 **Enemy HP**: <hp>
 
+**Base Damage**: <damage>
+
 **Player HP**: <hp>
 
-**Objective**: <objective>
+#### Description
 
-#### Rules:
-- rule 1
-  - rule 1 explanation
-  - rule 1 explanation
+<Objective and brief overview>
 
-- rule 2
-  - rule 2 explanation
-  - rule 2 explanation
+**Rules**:
+
+- General rules governing the scenario
+
+**Valid Attacks**:
+
+- Conditions for successful attacks
+- Damage calculation formula
+
+**Penalties**:
+
+- Consequences for invalid actions
+- Enemy counterattack formulas
+
+**Examples**:
+
+- Sample inputs and expected outputs
 ```
-
-### Syntax Error Penalties
-
-Also considered as penalty if there is error in code; enemy will counterattack.
-
-| Error Type  | Enemy Attack Formula               |
-| ----------- | ---------------------------------- |
-| SyntaxError | `base_damage +  (2 * error_count)` |
-| NameError   | `base_damage + name.length`        |
-| TypeError   | `base_damage * 4`                  |
-| Exception   | `base_damage + enemy_hp // 4`      |
 
 ## Integer
 
@@ -51,25 +52,31 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Player HP**: 100
 
-**Objective**: Assign integers to `attack` to deplete enemy HP.
+#### Description
 
-#### Rules
+Assign integers to `attack` to deplete enemy HP.
 
-**Valid Attack**:
+**Rules**:
 
-- Deals damage equal to `attack` value.
-- Enemy cannot counterattack.
-- Valid attack is`attack <= 25`
+- Each turn, assign an integer value to `attack`
+- Values must differ from previous turns
 
-**Overpowered**:
+**Valid Attacks**:
 
-- Player is "distracted" (too large to deal damage above 25).
-- Enemy counterattacks for `attack` damage.
+- Deals damage equal to `attack` value
+- Valid when `attack <= 25`
+- Enemy cannot counterattack on valid moves
 
-**Penalty**:
+**Penalties**:
 
-- `attack` value cannot be the same per turn.
-- Enemy counterattacks for `attack` damage.
+- Overpowered (`attack > 25`): Enemy counterattacks for `base_damage + attack`
+- Repeated value: Enemy counterattacks for `base_damage + attack`
+
+**Examples**:
+
+- Valid: `attack = 5` -> 5 damage
+- Overpowered: `attack = 30` -> enemy counters for 40 damage
+- Repeated: `attack = 5` (after previous 5) -> enemy counters for 15 damage
 
 ### Scenario #2: Fibonacci Sequence
 
@@ -81,30 +88,36 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Player HP**: 100
 
-**Objective**: Assign Fibonacci numbers to `attack` to unlock bonus damage.
+#### Description
 
-#### Rules
+Assign Fibonacci numbers to `attack` to unlock bonus damage.
 
-**Attack Formula**: `(c * n) + 1`
+**Rules**:
 
-- `c` = Current Fibonacci value (e.g., `1, 1, 2, 3, 5...`).
-- `n` = Sequence position (starts at 1).
+- Must use Fibonacci sequence: 1, 1, 2, 3, 5...
 
-**Example**:
+**Valid Attacks**:
+Damage formula: `(current_fib * position) + 1`
 
-- Turn 1: `attack = 1` -> `(1*1)+1 = 2` damage.
-- Turn 2: `attack = 1` -> `(1*2)+1 = 3` damage.
-- Turn 3: `attack = 2` -> `(2*3)+1 = 7` damage.
+- `current_fib`: Current Fibonacci number
+- `position`: Sequence position (starting at 1)
 
-**Penalty**:
+**Penalties**:
 
-- Non-Fibonacci number -> Enemy counterattacks for `attack` damage.
+- Non-Fibonacci number: Enemy counterattacks for `attack` damage
+
+**Examples**:
+
+- Turn 1: `attack = 1` -> `(1*1)+1 = 2` damage
+- Turn 2: `attack = 1` -> `(1*2)+1 = 3` damage
+- Turn 3: `attack = 2` -> `(2*3)+1 = 7` damage
+- Invalid: `attack = 4` -> enemy counters for 4 damage
 
 ## Float
 
 ### Scenario #3: Floating Point Precision
 
-**Enemy Name**: FloatFiend
+**Enemy Name**: `FloatFiend`
 
 **Enemy HP**: 30
 
@@ -112,29 +125,36 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Player HP**: 30
 
-**Objective**: Assign accurate float values to control attack power.
+#### Description
 
-#### Rules
+Assign accurate float values to control attack power.
 
-**Valid Attack**:
+**Rules**:
 
-- Damage formula `(attack * 10)`
-- Valid value `0.5 <= attack <= 5.5`
-- Too Precise: More than 2 decimal places
+- Values must have ≤ 2 decimal places
+- Must be within specified range
 
-**Invalid Attack**:
+**Valid Attacks**:
 
-- Enemy counterattacks for `attack` damage if it is not within the range.
+- Damage: `attack * 10`
+- Valid range: `0.5 <= attack <= 5.5`
 
-**Penalty**:
+**Penalties**:
 
-- Enemy counterattacks for `attack` damage.
+- Out of range: Enemy counterattacks for `attack` damage
+- Too precise (>2 decimals): Enemy counterattacks for `base_damage`
+
+**Examples**:
+
+- Valid: `attack = 1.25` -> 12.5 damage
+- Invalid range: `attack = 6.0` -> enemy counters for 6 damage
+- Too precise: `attack = 1.234` -> enemy counters for 10 damage
 
 ## Boolean
 
 ### Scenario #4: Boolean Trap Logic
 
-**Enemy Name**: TrueLie
+**Enemy Name**: `TrueLie`
 
 **Enemy HP**: 40
 
@@ -142,44 +162,36 @@ Also considered as penalty if there is error in code; enemy will counterattack.
 
 **Player HP**: 50
 
-**Objective**: Assign correct boolean values to `attack` based on the enemy's statements.
+#### Description
 
-#### Rules
+Assign correct boolean values based on enemy statements.
 
-**Valid Attack**:
-Enemy speaks a statement each turn.
+**Rules**:
 
-- If the statement is **true**, `attack = True`
-- If the statement is **false**, `attack = False`
+- Enemy makes a statement each turn
+- Determine if statement is true/false
 
-**Attack Formula**:
+**Valid Attacks**:
+Damage formula: `(int(attack) + 1) * 10`
 
-- `True` ‐> 1
-- `False` -> 0
-- Damage = `(int(attack) + 1) * 10`
+- `True` -> 20 damage
+- `False` -> 10 damage
 
-**Invalid Attack**:
+**Penalties**:
 
-- Incorrect boolean input is the same Attack Formula, but with the correct boolean value.
-- correct answer: `True` ‐> 1
-- correct answer: `False` -> 0
-- Damage = `(int(attack) + 1) * 10`
+- Incorrect boolean: Enemy counterattacks for `base_damage + 5`
 
-**Penalty**:
+**Examples**:
 
-- Enemy counterattacks for `base_damage + 5` if the answer is wrong
-**Example Enemy Dialogues** (one per turn):
-
-1. "The sun is a planet." -> `attack = False`
-2. "Water boils at 100°C." -> `attack = True`
-3. "Python is a type of snake and a programming language." -> `attack = True`
-4. "2 is greater than 5." -> `attack = False`
+1. "The sun is a planet." -> `attack = False` -> 10 damage
+2. "Water boils at 100°C." -> `attack = True` -> 20 damage
+3. Wrong answer -> enemy counters for 15 damage
 
 ## String
 
 ### Scenario #5: String Echo Fight
 
-**Enemy Name**: EchoLure
+**Enemy Name**: `EchoLure`
 
 **Enemy HP**: 40
 
@@ -187,39 +199,34 @@ Enemy speaks a statement each turn.
 
 **Player HP**: 50
 
-**Objective**: Assign the correct string to `word` that matches the enemy's required word.
+#### Description
 
-#### Rules
+Echo exact strings to damage enemy.
 
-**Valid Attack**:
+**Rules**:
 
-- Enemy says a word.
-- Set `word` to that exact word as a string.
-- Example: Enemy says "hello" → `word = "hello"`
-- Damage = `len(word) * 2`
+- Must match case and spelling exactly
 
-**Invalid Attack**:
+**Valid Attacks**:
 
-- Any mismatch in spelling and wrong case (e.g., "Hello" != "hello")
-- Damage = `len(word)`
+- Damage: `len(word) * 2`
 
-**Penalty**:
+**Penalties**:
 
-- Enemy counterattacks for `base_damage + len(word)`
-- if `len(word) == 0`, enemy counterattacks with `base_damage`.
+- Mismatch: Enemy counterattacks for `base_damage + len(word)`
+- Empty string: Enemy counters for `base_damage`
 
-**Example Enemy Requests** (one per turn):
+**Examples**:
 
-1. "Say hello!" → `word = "hello"`
-2. "Call me Lure!" → `word = "Lure"`
-3. "I like 'code'" → `word = "code"`
-4. "Repeat: python" → `word = "python"`
+- Enemy: "hello" -> `word = "hello"` -> 10 damage
+- Wrong case: `word = "Hello"` -> enemy counters for 15
+- Empty: `word = ""` -> enemy counters for 10
 
 ## List
 
 ### Scenario #6: List Formation
 
-**Enemy Name**: SwarmBug
+**Enemy Name**: `SwarmBug`
 
 **Enemy HP**: 60
 
@@ -227,38 +234,35 @@ Enemy speaks a statement each turn.
 
 **Player HP**: 60
 
-**Objective**: Create a list named `targets` with the correct number of enemies, elements can be any type of values.
+#### Description
 
-#### Rules
+Create lists with correct number of elements based on enemy's swarm count.
 
-**Valid Action**:
+**Rules**:
 
-- Enemy says how many bugs are in the swarm.
-- Create a list named `targets` with that many elements (any values are allowed).
-- Example: "There are 3 bugs!" → `targets = [1, 2, 3]` or `targets = ['a', 'b', 'c']`
-- Damage = `len(targets) * 4`
+- Must create a list named `targets`
+- Elements can be any type
 
-**Invalid Action**:
+**Valid Attacks**:
 
-- If `targets` is not a list, or has wrong number of elements
-- Damage = 0
+- Damage: `len(targets) * 4`
 
-**Penalty**:
+**Penalties**:
 
-- Enemy counterattacks for `base_damage + (2 * abs(correct - actual))`
-- where `correct` = expected length, `actual` = your list length
+- Wrong length: Enemy counterattacks for `base_damage + (2 * |expected - actual|)`
+- Not a list: Enemy counterattacks for `base_damage + 5`
 
-**Example Enemy Dialogues**:
+**Examples**:
 
-1. "There are 2 bugs!" → `targets = [0, 1]`
-2. "Five of us are crawling!" → `targets = ['a', 'b', 'c', 'd', 'e']`
-3. "Just one bug!" → `targets = ['x']`
+1. "3 bugs!" -> `targets = [1,2,3]` -> 12 damage
+2. "1 bug!" -> `targets = ['x']` -> 4 damage
+3. Wrong length -> enemy counters based on difference
 
 ## Tuples
 
 ### Scenario #7: Tuple Lock Code
 
-**Enemy Name**: LockWorm
+**Enemy Name**: `LockWorm`
 
 **Enemy HP**: 50
 
@@ -266,35 +270,35 @@ Enemy speaks a statement each turn.
 
 **Player HP**: 50
 
-**Objective**: Create a tuple named `code` with numbers in **ascending order** to unlock the enemy's weak point.
+#### Description
 
-#### Rules
+Create sorted tuples to unlock enemy defenses.
 
-**Valid Action**:
+**Rules**:
 
-- Enemy gives you a list of numbers (in random order).
-- You must create a tuple `code` with those numbers sorted from smallest to largest.
-- Example: Enemy says `4, 1, 3` → `code = (1, 3, 4)`
+- Must create tuple named `code`
+- Numbers must be in ascending order
 
-**Invalid Action**:
+**Valid Attacks**:
 
-- If `code` is not a tuple, or values are not in order → no damage
+- Damage: `sum(code)`
 
-**Penalty**:
+**Penalties**:
 
-- Enemy counterattacks for `base_damage + (incorrect element position)` if the tuple is incorrect
+- Unsorted: Enemy counterattacks for `base_damage + position_of_first_error`
+- Not a tuple: Enemy counterattacks for `base_damage + 3`
 
-**Example Enemy Dialogues**:
+**Examples**:
 
-1. "Unlock with 7, 2, and 5." → `code = (2, 5, 7)`
-2. "My combo is 9, 4, 6." → `code = (4, 6, 9)`
-3. "Try 3, 3, 1." → `code = (1, 3, 3)`
+1. "7,2,5" -> `code = (2,5,7)` -> 14 damage
+2. "3,3,1" -> `code = (1,3,3)` -> 7 damage
+3. Unsorted -> enemy counters based on error position
 
 ## Dictionary
 
 ### Scenario #8: LetterCount Curse
 
-**Enemy Name**: GlyphGhoul
+**Enemy Name**: `GlyphGhoul`
 
 **Enemy HP**: 50
 
@@ -302,33 +306,27 @@ Enemy speaks a statement each turn.
 
 **Player HP**: 60
 
-**Objective**: Count each letter in the enemy's glyph curse and store the result in a dictionary named `countmap`.
+#### Description
 
-#### Rules
+Count letter frequencies in enemy's glyph strings.
 
-**Enemy Action (each turn)**:
+**Rules**:
 
-- Enemy speaks a random string of letters (e.g., `"aabbccaa"`, `"xyyzz"`, `"mmmnpq"`)
+- Must create dictionary named `countmap`
+- Keys: unique letters
+- Values: occurrence counts
 
-**Valid Action**:
+**Valid Attacks**:
 
-- Create a dictionary `countmap` where:
-  - **Key** = each unique letter
-  - **Value** = number of times the letter appears
-  - Damage = `sum(countmap.values()) * 2`
+- Damage: `sum(countmap.values()) * 2`
 
-**Invalid Action**:
+**Penalties**:
 
-- Enemy Counterattacks by:
-- Wrong counts: sum of values of the dictionary.
-- Incorrect datatype: number of wrong data type.
-- Missing key: number of missing key.
+- Wrong counts: Enemy counterattacks for `sum(values)`
+- Missing keys: +2 damage per missing key
+- Wrong type: +5 damage
 
-#### Example
+**Examples**:
 
-**Enemy casts**: `"aabbccaa"`
-**Player code**:
-
-```python
-countmap = {'a': 4, 'b': 2, 'c': 2}
-```
+1. "aabbcc" -> `countmap = {'a':2, 'b':2, 'c':2}` -> 12 damage
+2. Missing 'b' -> enemy counters for sum + penalties
