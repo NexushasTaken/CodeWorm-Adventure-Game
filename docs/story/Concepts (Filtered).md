@@ -10,13 +10,12 @@
   - Strings (`str`)
   - Lists (`list`)
   - Tuples (`tuple`)
-  - Sets (`set`)
   - Dictionaries (`dict`)
 
 ## 2. **Operators**
 
-- Arithmetic Operators ("+", "-", "\*", "/", "//", "%", "\*\*")`
-- Comparison Operators ("\=\=", "!=", ">", "<", ">=", "<=")
+- Arithmetic Operators ("+", "-", "*", "/", "//", "%", "**")
+- Comparison Operators ("==", "!=", ">", "<", ">=", "<=")
 - Logical Operators ("and", "or", "not")
 - Assignment Operators ("=", "+=", "-=", etc.)
 - Membership Operators ("in", "not in")
@@ -34,14 +33,14 @@
 - Can accept parameters and return values
 - Support default, keyword, and arbitrary arguments (`*args`, `**kwargs`)
 
-## 5. **Data Structures**
+## 5. **Strings**
+
+- Immutable sequences of characters
+- Support slicing, indexing, and various built-in methods
+
+## 6. **Data Structures**
 
 - **Lists**: Ordered, mutable collections
 - **Tuples**: Ordered, immutable collections
 - **Sets**: Unordered, unique elements
 - **Dictionaries**: Key-value pairs
-
-## 6. **Strings**
-
-- Immutable sequences of characters
-- Support slicing, indexing, and various built-in methods
