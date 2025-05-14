@@ -49,7 +49,7 @@ $\text{Efficiency} = \frac{\text{Enemy HP}}{\text{Tiles Used}}$
 **Description**: How close you are to the world record
 
 **Calculation**:
-$\text{Normalized Speed} = 100 \times \frac{\text{Fastest Time}}{\text{Your Time}}$
+$\text{Normalized Speed} = 100 \times \frac{\text{Your Time}}{\text{Fastest Time}}$
 
 **Rules**:
 - 100 = world record
