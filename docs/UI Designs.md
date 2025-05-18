@@ -12,6 +12,10 @@
 
 ![Main Menu](../assets/ui-designs/Main%20Menu.excalidraw.png)
 
+## Scenario Selection
+
+![Scenario Selection](../assets/ui-designs/Scenario%20Selection.excalidraw)
+
 ## Battle UI (Separated)
 
 ![Battle Screen](../assets/ui-designs/Main%20UI%20Design%20-%20Light.png)

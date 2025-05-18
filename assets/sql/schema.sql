@@ -50,7 +50,14 @@ CREATE TABLE player_scenario_saves (
 -- Skin Collection
 CREATE TABLE skins (
   id UUID PRIMARY KEY,
-  identifier TEXT NOT NULL
+  identifier TEXT NOT NULL,
+  name TEXT NOT NULL,
+  cost NUMERIC,
+  purchasable BOOLEAN NOT NULL DEFAULT FALSE,
+  CONSTRAINT purchasable_cost_check CHECK (
+    (purchasable = TRUE AND cost IS NOT NULL) OR
+    (purchasable = FALSE AND cost IS NULL)
+  )
 );
 
 -- Player Skins Collection
@@ -75,6 +82,14 @@ CREATE TABLE achievements (
   id UUID PRIMARY KEY,
   name TEXT UNIQUE NOT NULL,
   description TEXT NOT NULL
+);
+
+-- Player Profile
+CREATE TABLE player_profile (
+  user_id UUID REFERENCES auth.users(id),
+  username TEXT UNIQUE NOT NULL,
+  coins NUMERIC DEFAULT 0,
+  PRIMARY KEY (user_id, username)
 );
 
 -- Completed/Unlocked Achievements
